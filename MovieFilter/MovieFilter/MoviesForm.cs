@@ -20,17 +20,17 @@ namespace MovieFilter
         private void Form1_Load(object sender, System.EventArgs e)
         {
             try
-            { 
-            XmlSerializer serializer = new XmlSerializer(typeof(Movies), new XmlRootAttribute("movies"));
-
-            using (FileStream fs = new FileStream(Environment.CurrentDirectory + "\\Data\\movies.xml", FileMode.Open))
             {
-                movies = serializer.Deserialize(fs) as Movies;
-            }
+                XmlSerializer serializer = new XmlSerializer(typeof(Movies), new XmlRootAttribute("movies"));
 
-            dataGridViewMovies.DataSource = movies.Movie;
+                using (FileStream fs = new FileStream(Environment.CurrentDirectory + "\\Data\\movies.xml", FileMode.Open))
+                {
+                    movies = serializer.Deserialize(fs) as Movies;
+                }
+
+                dataGridViewMovies.DataSource = movies.Movie;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw;
             }
@@ -38,15 +38,22 @@ namespace MovieFilter
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            AdditionalDataForm form2 = new AdditionalDataForm();
+            try
+            {
 
-            int index = dataGridViewMovies.CurrentCell.RowIndex;
+                AdditionalDataForm additionalData = new AdditionalDataForm();
 
-            form2.dataGridViewDirectors.DataSource = movies.Movie[dataGridViewMovies.CurrentCell.RowIndex].Director;
+                additionalData.dataGridViewDirectors.DataSource = movies.Movie[dataGridViewMovies.CurrentCell.RowIndex].Director;
 
-            form2.dataGridViewActors.DataSource = movies.Movie[dataGridViewMovies.CurrentCell.RowIndex].Actor;
+                additionalData.dataGridViewActors.DataSource = movies.Movie[dataGridViewMovies.CurrentCell.RowIndex].Actor;
 
-            form2.Show();
+                additionalData.Show();
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
     }
 }
