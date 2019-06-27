@@ -1,6 +1,6 @@
 ﻿namespace MovieFilter
 {
-    partial class Form1
+    partial class MoviesForm
     {
         /// <summary>
         /// Required designer variable.
@@ -56,14 +56,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Movies";
             // 
-            // Form1
+            // MoviesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(898, 530);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "MoviesForm";
+            this.Text = "Movies";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMovies)).EndInit();
             this.groupBox1.ResumeLayout(false);

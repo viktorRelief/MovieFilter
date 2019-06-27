@@ -1,6 +1,6 @@
 ﻿namespace MovieFilter
 {
-    partial class Form2
+    partial class AdditionalDataForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dataGridViewActors = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridViewDirectors = new System.Windows.Forms.DataGridView();
-            this.dataGridViewActors = new System.Windows.Forms.DataGridView();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActors)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDirectors)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActors)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox3
@@ -48,6 +48,14 @@
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Actors";
+            // 
+            // dataGridViewActors
+            // 
+            this.dataGridViewActors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewActors.Location = new System.Drawing.Point(6, 19);
+            this.dataGridViewActors.Name = "dataGridViewActors";
+            this.dataGridViewActors.Size = new System.Drawing.Size(498, 194);
+            this.dataGridViewActors.TabIndex = 1;
             // 
             // groupBox2
             // 
@@ -68,27 +76,19 @@
             this.dataGridViewDirectors.Size = new System.Drawing.Size(501, 197);
             this.dataGridViewDirectors.TabIndex = 0;
             // 
-            // dataGridViewActors
-            // 
-            this.dataGridViewActors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewActors.Location = new System.Drawing.Point(6, 19);
-            this.dataGridViewActors.Name = "dataGridViewActors";
-            this.dataGridViewActors.Size = new System.Drawing.Size(498, 194);
-            this.dataGridViewActors.TabIndex = 1;
-            // 
-            // Form2
+            // AdditionalDataForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(863, 571);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
-            this.Name = "Form2";
-            this.Text = "Form2";
+            this.Name = "AdditionalDataForm";
+            this.Text = "Additional data";
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActors)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDirectors)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActors)).EndInit();
             this.ResumeLayout(false);
 
         }

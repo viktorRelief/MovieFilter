@@ -1,18 +1,16 @@
 ﻿using MovieFilter.Models;
 using System;
-using System.Collections.Generic;
-using System.Data;
 using System.IO;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 
 namespace MovieFilter
 {
-    public partial class Form1 : Form
+    public partial class MoviesForm : Form
     {
         private Movies movies;
 
-        public Form1()
+        public MoviesForm()
         {
             InitializeComponent();
 
@@ -33,7 +31,7 @@ namespace MovieFilter
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Form2 form2 = new Form2();
+            AdditionalDataForm form2 = new AdditionalDataForm();
 
             int index = dataGridViewMovies.CurrentCell.RowIndex;
 
