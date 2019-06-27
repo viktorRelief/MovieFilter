@@ -24,7 +24,7 @@ namespace MovieFilter.Models
         [XmlElement(ElementName = "summary")]
         public string Summary { get; set; }
         [XmlElement(ElementName = "director")]
-        public Director Director { get; set; }
+        public List<Director> Director { get; set; }
         [XmlElement(ElementName = "actor")]
         public List<Actor> Actor { get; set; }
     }

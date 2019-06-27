@@ -30,17 +30,17 @@
         {
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewDirectors = new System.Windows.Forms.DataGridView();
+            this.dataGridViewActors = new System.Windows.Forms.DataGridView();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDirectors)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActors)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dataGridView2);
+            this.groupBox3.Controls.Add(this.dataGridViewActors);
             this.groupBox3.ForeColor = System.Drawing.Color.Green;
             this.groupBox3.Location = new System.Drawing.Point(12, 237);
             this.groupBox3.Name = "groupBox3";
@@ -51,7 +51,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.dataGridViewDirectors);
             this.groupBox2.ForeColor = System.Drawing.Color.Green;
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
@@ -60,21 +60,21 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Directors";
             // 
-            // dataGridView1
+            // dataGridViewDirectors
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 16);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(501, 197);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridViewDirectors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewDirectors.Location = new System.Drawing.Point(3, 16);
+            this.dataGridViewDirectors.Name = "dataGridViewDirectors";
+            this.dataGridViewDirectors.Size = new System.Drawing.Size(501, 197);
+            this.dataGridViewDirectors.TabIndex = 0;
             // 
-            // dataGridView2
+            // dataGridViewActors
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(6, 19);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(498, 194);
-            this.dataGridView2.TabIndex = 1;
+            this.dataGridViewActors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewActors.Location = new System.Drawing.Point(6, 19);
+            this.dataGridViewActors.Name = "dataGridViewActors";
+            this.dataGridViewActors.Size = new System.Drawing.Size(498, 194);
+            this.dataGridViewActors.TabIndex = 1;
             // 
             // Form2
             // 
@@ -87,8 +87,8 @@
             this.Text = "Form2";
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDirectors)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActors)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -97,7 +97,7 @@
 
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DataGridView dataGridViewActors;
+        public System.Windows.Forms.DataGridView dataGridViewDirectors;
     }
 }

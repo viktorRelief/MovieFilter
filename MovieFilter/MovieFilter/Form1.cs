@@ -10,31 +10,38 @@ namespace MovieFilter
 {
     public partial class Form1 : Form
     {
-        private readonly DataSet dataSet;
+        private Movies movies;
 
         public Form1()
         {
             InitializeComponent();
 
-            dataSet = new DataSet();                    
+            movies = new Movies();
         }
 
         private void Form1_Load(object sender, System.EventArgs e)
-        {
-            //dataSet.ReadXml(@"Data\movies.xml");
-            //dataGridView1.DataSource = dataSet.Tables[0];
-            //dataGridView2.DataSource = dataSet.Tables[1];
-            //dataGridView3.DataSource = dataSet.Tables[2];
+        {           
+            XmlSerializer serializer = new XmlSerializer(typeof(Movies), new XmlRootAttribute("movies"));
 
-            List<Movies> movies = new List<Movies>();
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Movies>), new XmlRootAttribute("movies"));
-
-            using (FileStream fs = new FileStream(Environment.CurrentDirectory + @"\Data\movies.xml", FileMode.Open, FileAccess.Read))
+            using (FileStream fs = new FileStream(Environment.CurrentDirectory + "\\Data\\movies.xml", FileMode.Open))
             {
-                movies = serializer.Deserialize(fs) as List<Movies>;
+                movies = serializer.Deserialize(fs) as Movies;
             }
 
-            dataGridView1.DataSource = movies;
+            dataGridViewMovies.DataSource = movies.Movie;
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Form2 form2 = new Form2();
+
+            int index = dataGridViewMovies.CurrentCell.RowIndex;
+
+            form2.dataGridViewDirectors.DataSource = movies.Movie[dataGridViewMovies.CurrentCell.RowIndex].Director;
+
+            form2.dataGridViewActors.DataSource = movies.Movie[dataGridViewMovies.CurrentCell.RowIndex].Actor;
+
+            form2.Show();
         }
     }
 }
