@@ -18,7 +18,9 @@ namespace MovieFilter
         }
 
         private void Form1_Load(object sender, System.EventArgs e)
-        {           
+        {
+            try
+            { 
             XmlSerializer serializer = new XmlSerializer(typeof(Movies), new XmlRootAttribute("movies"));
 
             using (FileStream fs = new FileStream(Environment.CurrentDirectory + "\\Data\\movies.xml", FileMode.Open))
@@ -27,6 +29,11 @@ namespace MovieFilter
             }
 
             dataGridViewMovies.DataSource = movies.Movie;
+            }
+            catch(Exception ex)
+            {
+                throw;
+            }
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
