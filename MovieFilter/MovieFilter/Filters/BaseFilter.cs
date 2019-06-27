@@ -1,8 +1,32 @@
-﻿using System.Xml.Serialization;
+﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Xml.Serialization;
 
-namespace MovieFilter.Models
+namespace MovieFilter.Filters
 {
+    public class BaseFilter
+    {
+        public Movies movies;
+
+        public BaseFilter()
+        {
+            movies = new Movies();
+        }
+
+        public Movies GetAllMovies()
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(Movies), new XmlRootAttribute("movies"));
+
+            using (FileStream fs = new FileStream(Environment.CurrentDirectory + "\\Data\\movies.xml", FileMode.Open))
+            {
+                movies = serializer.Deserialize(fs) as Movies;
+            }
+
+            return movies;
+        }
+    }
+
     [XmlRoot(ElementName = "movies")]
     public class Movies
     {

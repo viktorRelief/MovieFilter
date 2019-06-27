@@ -1,34 +1,42 @@
-﻿using MovieFilter.Models;
+﻿using MovieFilter.Filters;
 using System;
-using System.IO;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using System.Windows.Forms;
-using System.Xml.Serialization;
 
 namespace MovieFilter
 {
     public partial class MoviesForm : Form
     {
-        private Movies movies;
+        private BaseFilter baseFilter;
 
         public MoviesForm()
         {
             InitializeComponent();
-
-            movies = new Movies();
+            baseFilter = new BaseFilter();
         }
 
         private void Form1_Load(object sender, System.EventArgs e)
         {
             try
             {
-                XmlSerializer serializer = new XmlSerializer(typeof(Movies), new XmlRootAttribute("movies"));
+                dataGridViewMovies.DataSource = baseFilter.GetAllMovies().Movie;
 
-                using (FileStream fs = new FileStream(Environment.CurrentDirectory + "\\Data\\movies.xml", FileMode.Open))
+                //it will move
+
+                var years = baseFilter.GetAllMovies().Movie.Select(x => x.Year).Distinct().ToList();
+                var countries = baseFilter.GetAllMovies().Movie.Select(x => x.Country).Distinct().ToList();
+
+                foreach (var item in years)
                 {
-                    movies = serializer.Deserialize(fs) as Movies;
+                    comboBox1.Items.Add(item);
                 }
 
-                dataGridViewMovies.DataSource = movies.Movie;
+                foreach (var item in countries)
+                {
+                    comboBox2.Items.Add(item);
+                }
             }
             catch (Exception ex)
             {
@@ -42,9 +50,9 @@ namespace MovieFilter
             {
                 AdditionalDataForm additionalData = new AdditionalDataForm();
 
-                additionalData.dataGridViewDirectors.DataSource = movies.Movie[dataGridViewMovies.CurrentCell.RowIndex].Director;
+                additionalData.dataGridViewDirectors.DataSource = baseFilter.GetAllMovies().Movie[dataGridViewMovies.CurrentCell.RowIndex].Director;
 
-                additionalData.dataGridViewActors.DataSource = movies.Movie[dataGridViewMovies.CurrentCell.RowIndex].Actor;
+                additionalData.dataGridViewActors.DataSource = baseFilter.GetAllMovies().Movie[dataGridViewMovies.CurrentCell.RowIndex].Actor;
 
                 additionalData.Show();
             }
@@ -52,6 +60,20 @@ namespace MovieFilter
             {
                 throw;
             }
+        }
+
+        private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            YearFilter yearFilter = new YearFilter();
+
+            dataGridViewMovies.DataSource = yearFilter.FilterData(comboBox1);
+        }
+
+        private void comboBox2_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            CountryFilter countryFilter = new CountryFilter();
+
+            dataGridViewMovies.DataSource = countryFilter.FilterData(comboBox2);
         }
     }
 }

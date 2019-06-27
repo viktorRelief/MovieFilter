@@ -51,13 +51,15 @@
     <Compile Include="AdditionalDataForm.Designer.cs">
       <DependentUpon>AdditionalDataForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Filters\BaseFilter.cs" />
+    <Compile Include="Filters\CountryFilter.cs" />
+    <Compile Include="Filters\YearFilter.cs" />
     <Compile Include="MoviesForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MoviesForm.Designer.cs">
       <DependentUpon>MoviesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Movies.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AdditionalDataForm.resx">
