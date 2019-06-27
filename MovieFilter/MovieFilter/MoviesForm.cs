@@ -40,7 +40,6 @@ namespace MovieFilter
         {
             try
             {
-
                 AdditionalDataForm additionalData = new AdditionalDataForm();
 
                 additionalData.dataGridViewDirectors.DataSource = movies.Movie[dataGridViewMovies.CurrentCell.RowIndex].Director;
@@ -48,7 +47,6 @@ namespace MovieFilter
                 additionalData.dataGridViewActors.DataSource = movies.Movie[dataGridViewMovies.CurrentCell.RowIndex].Actor;
 
                 additionalData.Show();
-
             }
             catch (Exception ex)
             {
