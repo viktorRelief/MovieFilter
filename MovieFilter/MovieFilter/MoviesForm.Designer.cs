@@ -43,7 +43,7 @@
             this.dataGridViewMovies.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewMovies.Size = new System.Drawing.Size(861, 322);
             this.dataGridViewMovies.TabIndex = 0;
-            this.dataGridViewMovies.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            this.dataGridViewMovies.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewMovies_CellMouseDoubleClick);
             // 
             // groupBox1
             // 
