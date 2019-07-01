@@ -52,8 +52,10 @@
       <DependentUpon>AdditionalDataForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\MoviesData.cs" />
+    <Compile Include="FilterLogic\FilterDataLogic.cs" />
     <Compile Include="Filters\CountryFilter.cs" />
     <Compile Include="Filters\DefaultFilter.cs" />
+    <Compile Include="Filters\DirectorFilter.cs" />
     <Compile Include="Filters\GenreFilter.cs" />
     <Compile Include="Filters\YearFilter.cs" />
     <Compile Include="MoviesForm.cs">

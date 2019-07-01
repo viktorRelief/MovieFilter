@@ -10,5 +10,10 @@ namespace MovieFilter.Filters
         {
             return GetAllMovies().Movie.ToList();
         }
+
+        public virtual List<List<Director>> FilterDataDirectors()
+        {
+            return GetAllMovies().Movie.Select(x => x.Director).ToList();
+        }
     }
 }
