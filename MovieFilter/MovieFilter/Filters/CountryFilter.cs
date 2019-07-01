@@ -1,14 +1,28 @@
-﻿using System.Collections.Generic;
+﻿using MovieFilter.Data;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
 namespace MovieFilter.Filters
 {
-    public class CountryFilter : BaseFilter
+    public class CountryFilter : DefaultFilter
     {
-        public List<Movie> FilterData(ComboBox comboBox)
+        private CheckBox checkBox;
+
+        public CountryFilter(CheckBox comboBox)
         {
-            return GetAllMovies().Movie.Where(x => x.Country == comboBox.SelectedItem.ToString()).ToList();
+            this.checkBox = comboBox;
+        }
+
+        public override List<Movie> FilterData()
+        {
+            return base.FilterData().Where(x => x.Country == checkBox.Text).ToList();
+        }
+
+        public List<string> FilterValues()
+        {
+            return base.FilterData().Select(x => x.Country).Distinct().ToList();
         }
     }
 }

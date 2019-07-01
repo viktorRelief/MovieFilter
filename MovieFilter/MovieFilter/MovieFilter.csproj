@@ -51,8 +51,9 @@
     <Compile Include="AdditionalDataForm.Designer.cs">
       <DependentUpon>AdditionalDataForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Filters\BaseFilter.cs" />
+    <Compile Include="Data\MoviesData.cs" />
     <Compile Include="Filters\CountryFilter.cs" />
+    <Compile Include="Filters\DefaultFilter.cs" />
     <Compile Include="Filters\YearFilter.cs" />
     <Compile Include="MoviesForm.cs">
       <SubType>Form</SubType>

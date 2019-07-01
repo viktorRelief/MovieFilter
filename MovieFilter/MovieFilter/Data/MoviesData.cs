@@ -1,19 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace MovieFilter.Filters
+namespace MovieFilter.Data
 {
-    public class BaseFilter
+    public class MoviesData
     {
-        public Movies movies;
+        private Movies movies;
 
-        public BaseFilter()
+        public MoviesData()
         {
             movies = new Movies();
         }
-
         public Movies GetAllMovies()
         {
             XmlSerializer serializer = new XmlSerializer(typeof(Movies), new XmlRootAttribute("movies"));
