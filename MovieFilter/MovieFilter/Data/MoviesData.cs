@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace MovieFilter.Data
@@ -59,22 +56,22 @@ namespace MovieFilter.Data
     public class Director
     {
         [XmlElement(ElementName = "last_name")]
-        public string Last_name { get; set; }
+        public string LastName { get; set; }
         [XmlElement(ElementName = "first_name")]
-        public string First_name { get; set; }
+        public string FirstName { get; set; }
         [XmlElement(ElementName = "birth_date")]
-        public string Birth_date { get; set; }
+        public string BirthDate { get; set; }
     }
 
     [XmlRoot(ElementName = "actor")]
     public class Actor
     {
         [XmlElement(ElementName = "first_name")]
-        public string First_name { get; set; }
+        public string FirstName { get; set; }
         [XmlElement(ElementName = "last_name")]
-        public string Last_name { get; set; }
+        public string LastName { get; set; }
         [XmlElement(ElementName = "birth_date")]
-        public string Birth_date { get; set; }
+        public string BirthDate { get; set; }
         [XmlElement(ElementName = "role")]
         public string Role { get; set; }
     }
