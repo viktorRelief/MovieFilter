@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.dataGridViewMovies = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dataGroupBox = new System.Windows.Forms.GroupBox();
             this.filtersGroupBox = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMovies)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.dataGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridViewMovies
@@ -47,16 +47,16 @@
             this.dataGridViewMovies.TabIndex = 0;
             this.dataGridViewMovies.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewMovies_CellMouseDoubleClick);
             // 
-            // groupBox1
+            // dataGroupBox
             // 
-            this.groupBox1.Controls.Add(this.dataGridViewMovies);
-            this.groupBox1.ForeColor = System.Drawing.Color.Green;
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(664, 401);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Double click on the row for getting more information";
+            this.dataGroupBox.Controls.Add(this.dataGridViewMovies);
+            this.dataGroupBox.ForeColor = System.Drawing.Color.Green;
+            this.dataGroupBox.Location = new System.Drawing.Point(12, 12);
+            this.dataGroupBox.Name = "dataGroupBox";
+            this.dataGroupBox.Size = new System.Drawing.Size(664, 401);
+            this.dataGroupBox.TabIndex = 1;
+            this.dataGroupBox.TabStop = false;
+            this.dataGroupBox.Text = "Double click on the row for getting more information";
             // 
             // filtersGroupBox
             // 
@@ -85,12 +85,12 @@
             this.ClientSize = new System.Drawing.Size(922, 424);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.filtersGroupBox);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.dataGroupBox);
             this.Name = "MoviesForm";
             this.Text = "Movies";
             this.Load += new System.EventHandler(this.MoviesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMovies)).EndInit();
-            this.groupBox1.ResumeLayout(false);
+            this.dataGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -98,7 +98,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridViewMovies;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox dataGroupBox;
         private System.Windows.Forms.GroupBox filtersGroupBox;
         private System.Windows.Forms.Button button1;
     }
