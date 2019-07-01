@@ -10,9 +10,9 @@ namespace MovieFilter.Filters
     {
         private CheckBox checkBox;
 
-        public YearFilter(CheckBox comboBox)
+        public YearFilter(CheckBox checkBox)
         {
-            this.checkBox = comboBox;
+            this.checkBox = checkBox;
         }
 
         public override List<Movie> FilterData()
