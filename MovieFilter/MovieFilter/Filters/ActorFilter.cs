@@ -28,9 +28,17 @@ namespace MovieFilter.Filters
 
         public List<string> FilterValuesActorsBirthDate(int index)
         {
-            var list = FilterDataActors()[index].Select(x => x.BirthDate).Distinct().ToList();
+            return FilterDataActors()[index].Select(x => x.BirthDate).Distinct().ToList();
+        }
 
-            return list;
+        public List<string> FilterValuesActorsLastName(int index)
+        {
+            return FilterDataActors()[index].Select(x => x.LastName).Distinct().ToList();
+        }
+
+        public List<string> FilterValuesActorsRole(int index)
+        {
+            return FilterDataActors()[index].Select(x => x.Role).Distinct().ToList();
         }
     }
 }

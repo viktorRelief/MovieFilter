@@ -2,6 +2,7 @@
 using MovieFilter.FilterLogic;
 using MovieFilter.Filters;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace MovieFilter
@@ -23,13 +24,20 @@ namespace MovieFilter
         private void AdditionalDataForm_Load_1(object sender, EventArgs e)
         {
             try
-            {
+            {               
                 filterDataLogic.FilterDataGrid("FilterValuesActorsBirthDate", dateOfBirthGroupBox, index);
+                filterDataLogic.FilterDataGrid("FilterValuesActorsLastName", lastNameGroupBox, index);
+                filterDataLogic.FilterDataGrid("FilterValuesActorsRole", roleGroupBox, index);
             }
             catch (Exception ex)
             {
                 throw;
             }
+        }
+
+        private void filter_button_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

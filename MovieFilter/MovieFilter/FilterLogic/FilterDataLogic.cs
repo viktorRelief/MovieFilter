@@ -63,6 +63,7 @@ namespace MovieFilter.FilterLogic
                     checkBox = new CheckBox();
                     filtersGroupBox.Controls.Add(checkBox);
                     checkBox.Top = cLeft * 20;
+                    checkBox.Width = 200;
                     checkBox.Left = 10;
                     checkBox.Text = i.ToString();
                     cLeft = cLeft + 1;
@@ -70,6 +71,8 @@ namespace MovieFilter.FilterLogic
                     checkBoxFilters.Add(checkBox);
                 }
             }
+
+            cLeft = 1;
         }
 
         public void FilterData(DataGridView dataGridView, string filterDataMethod)

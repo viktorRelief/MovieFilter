@@ -33,6 +33,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dateOfBirthGroupBox = new System.Windows.Forms.GroupBox();
+            this.lastNameGroupBox = new System.Windows.Forms.GroupBox();
+            this.roleGroupBox = new System.Windows.Forms.GroupBox();
+            this.filter_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDirectors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActors)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -81,16 +84,47 @@
             // 
             this.dateOfBirthGroupBox.Location = new System.Drawing.Point(638, 12);
             this.dateOfBirthGroupBox.Name = "dateOfBirthGroupBox";
-            this.dateOfBirthGroupBox.Size = new System.Drawing.Size(222, 141);
+            this.dateOfBirthGroupBox.Size = new System.Drawing.Size(222, 134);
             this.dateOfBirthGroupBox.TabIndex = 3;
             this.dateOfBirthGroupBox.TabStop = false;
             this.dateOfBirthGroupBox.Text = "Date of birth";
+            // 
+            // lastNameGroupBox
+            // 
+            this.lastNameGroupBox.Location = new System.Drawing.Point(638, 152);
+            this.lastNameGroupBox.Name = "lastNameGroupBox";
+            this.lastNameGroupBox.Size = new System.Drawing.Size(222, 126);
+            this.lastNameGroupBox.TabIndex = 4;
+            this.lastNameGroupBox.TabStop = false;
+            this.lastNameGroupBox.Text = "Last name";
+            // 
+            // roleGroupBox
+            // 
+            this.roleGroupBox.Location = new System.Drawing.Point(638, 284);
+            this.roleGroupBox.Name = "roleGroupBox";
+            this.roleGroupBox.Size = new System.Drawing.Size(222, 120);
+            this.roleGroupBox.TabIndex = 0;
+            this.roleGroupBox.TabStop = false;
+            this.roleGroupBox.Text = "roleGroupBox";
+            // 
+            // filter_button
+            // 
+            this.filter_button.Location = new System.Drawing.Point(638, 410);
+            this.filter_button.Name = "filter_button";
+            this.filter_button.Size = new System.Drawing.Size(222, 48);
+            this.filter_button.TabIndex = 0;
+            this.filter_button.Text = "Filter";
+            this.filter_button.UseVisualStyleBackColor = true;
+            this.filter_button.Click += new System.EventHandler(this.filter_button_Click);
             // 
             // AdditionalDataForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(880, 480);
+            this.Controls.Add(this.filter_button);
+            this.Controls.Add(this.roleGroupBox);
+            this.Controls.Add(this.lastNameGroupBox);
             this.Controls.Add(this.dateOfBirthGroupBox);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -112,5 +146,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox dateOfBirthGroupBox;
+        private System.Windows.Forms.GroupBox lastNameGroupBox;
+        private System.Windows.Forms.GroupBox roleGroupBox;
+        private System.Windows.Forms.Button filter_button;
     }
 }
