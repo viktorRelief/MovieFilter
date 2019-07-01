@@ -1,11 +1,6 @@
-﻿using MovieFilter.Data;
-using MovieFilter.FilterLogic;
+﻿using MovieFilter.FilterLogic;
 using MovieFilter.Filters;
 using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Reflection;
 using System.Windows.Forms;
 
 namespace MovieFilter
@@ -13,15 +8,14 @@ namespace MovieFilter
     public partial class MoviesForm : Form
     {
         private DefaultFilter defaultFilter;
-        private List<CheckBox> checkBoxFilters;
-        private int cLeft = 1;
-        private FilterDataLogic filterDataLogic;
+        private FilterDataLogic<string> filterDataLogic;
 
         public MoviesForm()
         {
             InitializeComponent();
+
             defaultFilter = new DefaultFilter();
-            filterDataLogic = new FilterDataLogic(defaultFilter);
+            filterDataLogic = new FilterDataLogic<string>(defaultFilter);
         }
 
         private void MoviesForm_Load(object sender, System.EventArgs e)
@@ -47,6 +41,8 @@ namespace MovieFilter
                 additionalData.dataGridViewDirectors.DataSource = defaultFilter.FilterDataMovies()[dataGridViewMovies.CurrentCell.RowIndex].Director;
 
                 additionalData.dataGridViewActors.DataSource = defaultFilter.FilterDataMovies()[dataGridViewMovies.CurrentCell.RowIndex].Actor;
+
+                additionalData.index = dataGridViewMovies.CurrentCell.RowIndex;
 
                 additionalData.Show();
             }

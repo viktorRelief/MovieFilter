@@ -32,6 +32,7 @@
             this.dataGridViewActors = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dateOfBirthGroupBox = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDirectors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActors)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -76,15 +77,26 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Actors";
             // 
+            // dateOfBirthGroupBox
+            // 
+            this.dateOfBirthGroupBox.Location = new System.Drawing.Point(638, 12);
+            this.dateOfBirthGroupBox.Name = "dateOfBirthGroupBox";
+            this.dateOfBirthGroupBox.Size = new System.Drawing.Size(222, 141);
+            this.dateOfBirthGroupBox.TabIndex = 3;
+            this.dateOfBirthGroupBox.TabStop = false;
+            this.dateOfBirthGroupBox.Text = "Date of birth";
+            // 
             // AdditionalDataForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(643, 480);
+            this.ClientSize = new System.Drawing.Size(880, 480);
+            this.Controls.Add(this.dateOfBirthGroupBox);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "AdditionalDataForm";
             this.Text = "Additional data";
+            this.Load += new System.EventHandler(this.AdditionalDataForm_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDirectors)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActors)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -99,5 +111,6 @@
         public System.Windows.Forms.DataGridView dataGridViewActors;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox dateOfBirthGroupBox;
     }
 }
