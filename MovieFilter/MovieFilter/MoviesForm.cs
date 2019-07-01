@@ -25,9 +25,9 @@ namespace MovieFilter
         {
             try
             {
-                dataGridViewMovies.DataSource = defaultFilter.FilterData();
+                dataGridViewMovies.DataSource = defaultFilter.FilterDataMovies();
 
-                FilterDataGrid();
+                FilterDataGrid("FilterValuesMovies");
             }
             catch (Exception ex)
             {
@@ -41,9 +41,9 @@ namespace MovieFilter
             {
                 AdditionalDataForm additionalData = new AdditionalDataForm();
 
-                additionalData.dataGridViewDirectors.DataSource = defaultFilter.FilterData()[dataGridViewMovies.CurrentCell.RowIndex].Director;
+                additionalData.dataGridViewDirectors.DataSource = defaultFilter.FilterDataMovies()[dataGridViewMovies.CurrentCell.RowIndex].Director;
 
-                additionalData.dataGridViewActors.DataSource = defaultFilter.FilterData()[dataGridViewMovies.CurrentCell.RowIndex].Actor;
+                additionalData.dataGridViewActors.DataSource = defaultFilter.FilterDataMovies()[dataGridViewMovies.CurrentCell.RowIndex].Actor;
 
                 additionalData.Show();
             }
@@ -53,7 +53,7 @@ namespace MovieFilter
             }
         }
 
-        public void FilterDataGrid()
+        public void FilterDataGrid(string methodName)
         {
             Type[] types = Assembly.GetExecutingAssembly().GetTypes()
                 .Where(t => typeof(DefaultFilter).IsAssignableFrom(t) && t != typeof(DefaultFilter)).ToArray();
@@ -64,7 +64,7 @@ namespace MovieFilter
             {
                 var instance = Activator.CreateInstance(t, new CheckBox());
 
-                var method = t.GetMethod("FilterValues");
+                var method = t.GetMethod(methodName);
 
                 if (instance != null && method != null)
                 {
@@ -72,10 +72,10 @@ namespace MovieFilter
                 }
             }
 
-            FullCheckBoxes(filterValues);
+            FullCheckBoxes(filterValues, filtersGroupBox);
         }
 
-        public void FullCheckBoxes(List<List<String>> checkBoxData)
+        public void FullCheckBoxes(List<List<String>> checkBoxData, GroupBox filtersGroupBox)
         {
             CheckBox checkBox;
 
@@ -86,7 +86,7 @@ namespace MovieFilter
                 foreach (var i in item)
                 {
                     checkBox = new CheckBox();
-                    groupBox2.Controls.Add(checkBox);
+                    filtersGroupBox.Controls.Add(checkBox);
                     checkBox.Top = cLeft * 20;
                     checkBox.Left = 10;
                     checkBox.Text = i;
@@ -112,7 +112,7 @@ namespace MovieFilter
                     {
                         var instance = Activator.CreateInstance(t, checkBox);
 
-                        var method = t.GetMethod("FilterData");
+                        var method = t.GetMethod("FilterDataMovies");
 
                         if (instance != null && method != null)
                         {
@@ -127,7 +127,7 @@ namespace MovieFilter
                 }
                 else
                 {
-                    dataGridViewMovies.DataSource = defaultFilter.FilterData();
+                    dataGridViewMovies.DataSource = defaultFilter.FilterDataMovies();
                 }
 
                 if (filterValues.Count > 0)

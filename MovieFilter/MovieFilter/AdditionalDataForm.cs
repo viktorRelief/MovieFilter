@@ -8,5 +8,10 @@ namespace MovieFilter
         {
             InitializeComponent();
         }
+
+        private void filter_button_Click(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

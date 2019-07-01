@@ -6,7 +6,7 @@ namespace MovieFilter.Filters
 {
     public class DefaultFilter : MoviesData
     {
-        public virtual List<Movie> FilterData()
+        public virtual List<Movie> FilterDataMovies()
         {
             return GetAllMovies().Movie.ToList();
         }

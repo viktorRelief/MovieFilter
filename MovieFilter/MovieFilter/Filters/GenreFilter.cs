@@ -14,13 +14,13 @@ namespace MovieFilter.Filters
             this.checkBox = checkBox;
         }
 
-        public override List<Movie> FilterData()
+        public override List<Movie> FilterDataMovies()
         {
-            return base.FilterData().Where(x => x.Genre == checkBox.Text).ToList();
+            return base.FilterDataMovies().Where(x => x.Genre == checkBox.Text).ToList();
         }
-        public List<string> FilterValues()
+        public List<string> FilterValuesMovies()
         {
-            return base.FilterData().Select(x => x.Genre).Distinct().ToList();
+            return base.FilterDataMovies().Select(x => x.Genre).Distinct().ToList();
         }
     }
 }
