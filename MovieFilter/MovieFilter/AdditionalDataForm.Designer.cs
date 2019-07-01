@@ -109,6 +109,7 @@
             // 
             // filter_button
             // 
+            this.filter_button.Enabled = false;
             this.filter_button.Location = new System.Drawing.Point(638, 410);
             this.filter_button.Name = "filter_button";
             this.filter_button.Size = new System.Drawing.Size(222, 48);

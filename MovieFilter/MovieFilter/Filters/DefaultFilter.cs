@@ -11,7 +11,7 @@ namespace MovieFilter.Filters
             return GetAllMovies().Movie.ToList();
         }
 
-        public virtual List<Actor>[] FilterDataActors()
+        public List<Actor>[] FilterDataActors()
         {
             return GetAllMovies().Movie.Select(x => x.Actor).ToArray();
         }

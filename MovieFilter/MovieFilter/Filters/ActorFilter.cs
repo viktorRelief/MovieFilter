@@ -14,17 +14,11 @@ namespace MovieFilter.Filters
             this.checkBox = checkBox;
         }
 
-        //public override List<List<Director>> FilterDataDirectors()
-        //{
-        //    List<List<Director>> filteredDirectors = new List<List<Director>>();
-
-        //    foreach (var item in base.FilterDataDirectors())
-        //    {
-        //        filteredDirectors.Add(item.Where(x => x.BirthDate == checkBox.Text || x.FirstName == checkBox.Text || x.LastName == checkBox.Text).ToList());
-        //    }
-
-        //    return filteredDirectors;
-        //}
+        //to do: should be used
+        public List<Actor> FilteredDataActors(int index)
+        {
+            return FilterDataActors()[index].Where(x => x.BirthDate == checkBox.Text || x.FirstName == checkBox.Text || x.LastName == checkBox.Text).ToList();
+        }
 
         public List<string> FilterValuesActorsBirthDate(int index)
         {
