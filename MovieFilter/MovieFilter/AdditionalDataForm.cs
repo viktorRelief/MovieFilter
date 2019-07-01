@@ -1,8 +1,6 @@
-﻿using MovieFilter.Data;
-using MovieFilter.FilterLogic;
+﻿using MovieFilter.FilterLogic;
 using MovieFilter.Filters;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace MovieFilter
