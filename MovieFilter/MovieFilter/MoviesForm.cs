@@ -53,7 +53,7 @@ namespace MovieFilter
             }
         }
 
-        public void FilterDataGrid(string methodName)
+        private void FilterDataGrid(string methodName)
         {
             Type[] types = Assembly.GetExecutingAssembly().GetTypes()
                 .Where(t => typeof(DefaultFilter).IsAssignableFrom(t) && t != typeof(DefaultFilter)).ToArray();
@@ -75,7 +75,7 @@ namespace MovieFilter
             FullCheckBoxes(filterValues, filtersGroupBox);
         }
 
-        public void FullCheckBoxes(List<List<String>> checkBoxData, GroupBox filtersGroupBox)
+        private void FullCheckBoxes(List<List<String>> checkBoxData, GroupBox filtersGroupBox)
         {
             CheckBox checkBox;
 
@@ -137,7 +137,7 @@ namespace MovieFilter
             }
         }
 
-        public void CreateFilterDataGrid(List<Movie[]> filterValues)
+        private void CreateFilterDataGrid(List<Movie[]> filterValues)
         {
             DataTable table = new DataTable();
 
