@@ -60,6 +60,7 @@
             // 
             // filtersGroupBox
             // 
+            this.filtersGroupBox.ForeColor = System.Drawing.Color.Green;
             this.filtersGroupBox.Location = new System.Drawing.Point(682, 12);
             this.filtersGroupBox.Name = "filtersGroupBox";
             this.filtersGroupBox.Size = new System.Drawing.Size(228, 354);
