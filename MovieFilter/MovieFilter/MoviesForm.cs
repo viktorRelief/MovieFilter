@@ -58,7 +58,7 @@ namespace MovieFilter
 
         private void filter_button_Click(object sender, MouseEventArgs e)
         {
-            filterDataLogic.FilterData(dataGridViewMovies);
+            filterDataLogic.FilterData(dataGridViewMovies, "FilterDataMovies");
         }       
     }
 }

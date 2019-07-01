@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace MovieFilter.Filters
 {
-    public class CountryFilter : DefaultFilter
+    public sealed class CountryFilter : DefaultFilter
     {
         private CheckBox checkBox;
 

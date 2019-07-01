@@ -1,14 +1,11 @@
 ﻿using MovieFilter.Data;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MovieFilter.Filters
 {
-    class DirectorFilter //: DefaultFilter
+    public sealed class DirectorFilter : DefaultFilter
     {
         private CheckBox checkBox;
 
@@ -17,30 +14,30 @@ namespace MovieFilter.Filters
             this.checkBox = checkBox;
         }
 
-        //public override List<List<Director>> FilterDataDirectors()
-        //{
-        //    List<List<Director>> filteredDirectors = new List<List<Director>>();
+        public override List<List<Director>> FilterDataDirectors()
+        {
+            List<List<Director>> filteredDirectors = new List<List<Director>>();
 
-        //    foreach (var item in base.FilterDataDirectors())
-        //    {
-        //        filteredDirectors.Add(item.Where(x => x.BirthDate == checkBox.Text || x.FirstName == checkBox.Text || x.LastName == checkBox.Text).ToList());
-        //    }
+            foreach (var item in base.FilterDataDirectors())
+            {
+                filteredDirectors.Add(item.Where(x => x.BirthDate == checkBox.Text || x.FirstName == checkBox.Text || x.LastName == checkBox.Text).ToList());
+            }
 
-        //    return filteredDirectors;
-        //}
+            return filteredDirectors;
+        }
 
-        //public List<List<string>> FilterValuesDirectors()
-        //{
-        //    List<List<string>> filterValuesDirectors = new List<List<string>>();
+        public List<List<string>> FilterValuesDirectors()
+        {
+            List<List<string>> filterValuesDirectors = new List<List<string>>();
 
-        //    foreach (var item in base.FilterDataDirectors())
-        //    {
-        //        filterValuesDirectors.Add(item.Select(x => x.BirthDate).Distinct().ToList());
-        //        filterValuesDirectors.Add(item.Select(x => x.FirstName).Distinct().ToList());
-        //        filterValuesDirectors.Add(item.Select(x => x.LastName).Distinct().ToList());
-        //    }
+            foreach (var item in base.FilterDataDirectors())
+            {
+                filterValuesDirectors.Add(item.Select(x => x.BirthDate).Distinct().ToList());
+                filterValuesDirectors.Add(item.Select(x => x.FirstName).Distinct().ToList());
+                filterValuesDirectors.Add(item.Select(x => x.LastName).Distinct().ToList());
+            }
 
-        //    return filterValuesDirectors;
-        //}
+            return filterValuesDirectors;
+        }
     }
 }

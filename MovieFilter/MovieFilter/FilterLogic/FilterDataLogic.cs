@@ -64,7 +64,7 @@ namespace MovieFilter.FilterLogic
             }
         }
 
-        public void FilterData(DataGridView dataGridView)
+        public void FilterData(DataGridView dataGridView, string filterDataMethod)
         {
             Type[] types = Assembly.GetExecutingAssembly().GetTypes()
                     .Where(t => typeof(DefaultFilter).IsAssignableFrom(t) && t != typeof(DefaultFilter)).ToArray();
@@ -79,9 +79,9 @@ namespace MovieFilter.FilterLogic
                     {
                         var instance = Activator.CreateInstance(t, checkBox);
 
-                        var method = t.GetMethod("FilterDataMovies");
+                        var method = t.GetMethod(filterDataMethod);
 
-                        if (instance != null && method != null)
+                        if (instance != null && method != null && method.DeclaringType.IsSealed)
                         {
                             var data = (List<Movie>)method.Invoke(instance, null);
 
