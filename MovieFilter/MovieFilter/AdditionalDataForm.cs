@@ -37,7 +37,7 @@ namespace MovieFilter
 
         private void filter_button_Click(object sender, EventArgs e)
         {
-
+            //to do: it should be implemented
         }
     }
 }
