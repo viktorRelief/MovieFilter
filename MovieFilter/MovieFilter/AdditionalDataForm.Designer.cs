@@ -32,9 +32,7 @@
             this.dataGridViewActors = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dateOfBirthGroupBox = new System.Windows.Forms.GroupBox();
-            this.lastNameGroupBox = new System.Windows.Forms.GroupBox();
-            this.roleGroupBox = new System.Windows.Forms.GroupBox();
+            this.filtersGroupBox = new System.Windows.Forms.GroupBox();
             this.filter_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDirectors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActors)).BeginInit();
@@ -80,36 +78,17 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Actors";
             // 
-            // dateOfBirthGroupBox
+            // filtersGroupBox
             // 
-            this.dateOfBirthGroupBox.Location = new System.Drawing.Point(638, 12);
-            this.dateOfBirthGroupBox.Name = "dateOfBirthGroupBox";
-            this.dateOfBirthGroupBox.Size = new System.Drawing.Size(222, 134);
-            this.dateOfBirthGroupBox.TabIndex = 3;
-            this.dateOfBirthGroupBox.TabStop = false;
-            this.dateOfBirthGroupBox.Text = "Date of birth";
-            // 
-            // lastNameGroupBox
-            // 
-            this.lastNameGroupBox.Location = new System.Drawing.Point(638, 152);
-            this.lastNameGroupBox.Name = "lastNameGroupBox";
-            this.lastNameGroupBox.Size = new System.Drawing.Size(222, 126);
-            this.lastNameGroupBox.TabIndex = 4;
-            this.lastNameGroupBox.TabStop = false;
-            this.lastNameGroupBox.Text = "Last name";
-            // 
-            // roleGroupBox
-            // 
-            this.roleGroupBox.Location = new System.Drawing.Point(638, 284);
-            this.roleGroupBox.Name = "roleGroupBox";
-            this.roleGroupBox.Size = new System.Drawing.Size(222, 120);
-            this.roleGroupBox.TabIndex = 0;
-            this.roleGroupBox.TabStop = false;
-            this.roleGroupBox.Text = "roleGroupBox";
+            this.filtersGroupBox.Location = new System.Drawing.Point(638, 12);
+            this.filtersGroupBox.Name = "filtersGroupBox";
+            this.filtersGroupBox.Size = new System.Drawing.Size(222, 392);
+            this.filtersGroupBox.TabIndex = 3;
+            this.filtersGroupBox.TabStop = false;
+            this.filtersGroupBox.Text = "Filters";
             // 
             // filter_button
             // 
-            this.filter_button.Enabled = false;
             this.filter_button.Location = new System.Drawing.Point(638, 410);
             this.filter_button.Name = "filter_button";
             this.filter_button.Size = new System.Drawing.Size(222, 48);
@@ -124,14 +103,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(880, 480);
             this.Controls.Add(this.filter_button);
-            this.Controls.Add(this.roleGroupBox);
-            this.Controls.Add(this.lastNameGroupBox);
-            this.Controls.Add(this.dateOfBirthGroupBox);
+            this.Controls.Add(this.filtersGroupBox);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "AdditionalDataForm";
             this.Text = "Additional data";
-            this.Load += new System.EventHandler(this.AdditionalDataForm_Load_1);
+            this.Load += new System.EventHandler(this.AdditionalDataForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDirectors)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActors)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -146,9 +123,7 @@
         public System.Windows.Forms.DataGridView dataGridViewActors;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox dateOfBirthGroupBox;
-        private System.Windows.Forms.GroupBox lastNameGroupBox;
-        private System.Windows.Forms.GroupBox roleGroupBox;
+        private System.Windows.Forms.GroupBox filtersGroupBox;
         private System.Windows.Forms.Button filter_button;
     }
 }

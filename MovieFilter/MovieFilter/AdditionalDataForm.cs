@@ -1,6 +1,8 @@
-﻿using MovieFilter.FilterLogic;
+﻿using MovieFilter.Data;
+using MovieFilter.FilterLogic;
 using MovieFilter.Filters;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace MovieFilter
@@ -8,24 +10,25 @@ namespace MovieFilter
     public partial class AdditionalDataForm : Form
     {
         private DefaultFilter defaultFilter;
-        private FilterDataLogic<string> filterDataLogic;
+        private FilterDataLogic<string, Actor> filterDataLogic;
         public int index;
+        List<CheckBox> checkBoxes;
 
         public AdditionalDataForm()
         {
             InitializeComponent();
 
             defaultFilter = new DefaultFilter();
-            filterDataLogic = new FilterDataLogic<string>(defaultFilter);
+            filterDataLogic = new FilterDataLogic<string, Actor>(defaultFilter);
         }
 
-        private void AdditionalDataForm_Load_1(object sender, EventArgs e)
+        private void AdditionalDataForm_Load(object sender, EventArgs e)
         {
             try
-            {               
-                filterDataLogic.FilterDataGrid("FilterValuesActorsBirthDate", dateOfBirthGroupBox, index);
-                filterDataLogic.FilterDataGrid("FilterValuesActorsLastName", lastNameGroupBox, index);
-                filterDataLogic.FilterDataGrid("FilterValuesActorsRole", roleGroupBox, index);
+            {
+                checkBoxes = new List<CheckBox>();
+
+                filterDataLogic.FilterDataGrid("FilterValuesActors", filtersGroupBox, out checkBoxes, index);
             }
             catch (Exception ex)
             {
@@ -35,7 +38,7 @@ namespace MovieFilter
 
         private void filter_button_Click(object sender, EventArgs e)
         {
-            //to do: it should be implemented
+            filterDataLogic.FilterData(dataGridViewActors, "FilteredDataActors", checkBoxes, index);
         }
     }
 }

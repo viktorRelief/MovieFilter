@@ -53,9 +53,11 @@
     </Compile>
     <Compile Include="Data\MoviesData.cs" />
     <Compile Include="FilterLogic\FilterDataLogic.cs" />
+    <Compile Include="Filters\RoleActorFilter.cs" />
+    <Compile Include="Filters\LastNameActorFilter.cs" />
     <Compile Include="Filters\CountryFilter.cs" />
     <Compile Include="Filters\DefaultFilter.cs" />
-    <Compile Include="Filters\ActorFilter.cs" />
+    <Compile Include="Filters\BirthDateActorFilter.cs" />
     <Compile Include="Filters\GenreFilter.cs" />
     <Compile Include="Filters\YearFilter.cs" />
     <Compile Include="MoviesForm.cs">

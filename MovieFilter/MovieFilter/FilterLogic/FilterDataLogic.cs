@@ -9,9 +9,8 @@ using System.Windows.Forms;
 
 namespace MovieFilter.FilterLogic
 {
-    public class FilterDataLogic<T>
-    {
-        private List<CheckBox> checkBoxFilters;
+    public class FilterDataLogic<T, U>
+    {      
         private int cLeft;
         private DefaultFilter defaultFilter;
 
@@ -21,10 +20,10 @@ namespace MovieFilter.FilterLogic
             this.defaultFilter = defaultFilter;
         }
 
-        public void FilterDataGrid(string methodName, GroupBox filtersGroupBox, object index = null)
+        public void FilterDataGrid(string methodName, GroupBox filtersGroupBox, out List<CheckBox> checkBoxFilters, object index = null)
         {
             Type[] types = Assembly.GetExecutingAssembly().GetTypes()
-                .Where(t => typeof(DefaultFilter).IsAssignableFrom(t) && t != typeof(DefaultFilter)).ToArray();
+                .Where(t => typeof(DefaultFilter).IsAssignableFrom(t) && t != typeof(DefaultFilter)).ToArray();        
 
             List<T> filterValues = new List<T>();
 
@@ -48,16 +47,15 @@ namespace MovieFilter.FilterLogic
                 }
             }
 
-            FullCheckBoxes(filterValues, filtersGroupBox);
+            FullCheckBoxes(filterValues, filtersGroupBox, out checkBoxFilters);
         }
 
-        private void FullCheckBoxes(List<T> checkBoxData, GroupBox filtersGroupBox)
+        private void FullCheckBoxes(List<T> filterValues, GroupBox filtersGroupBox, out List<CheckBox> checkBoxFilters)
         {
             CheckBox checkBox;
-
             checkBoxFilters = new List<CheckBox>();
 
-            foreach (var item in checkBoxData)
+            foreach (var item in filterValues)
             {
                 checkBox = new CheckBox();
                 filtersGroupBox.Controls.Add(checkBox);
@@ -73,12 +71,12 @@ namespace MovieFilter.FilterLogic
             cLeft = 1;
         }
 
-        public void FilterData(DataGridView dataGridView, string filterDataMethod)
+        public void FilterData(DataGridView dataGridView, string filterDataMethod, List<CheckBox> checkBoxFilters, object index = null)
         {
             Type[] types = Assembly.GetExecutingAssembly().GetTypes()
                     .Where(t => typeof(DefaultFilter).IsAssignableFrom(t) && t != typeof(DefaultFilter)).ToArray();
 
-            List<Movie> filteredValues = new List<Movie>();
+            List<U> filteredValues = new List<U>();
 
             foreach (var checkBox in checkBoxFilters)
             {
@@ -92,7 +90,17 @@ namespace MovieFilter.FilterLogic
 
                         if (instance != null && method != null && method.DeclaringType.IsSealed)
                         {
-                            var data = (List<Movie>)method.Invoke(instance, null);
+                            List<U> data = null;
+
+                            switch (index)
+                            {                               
+                                case null:
+                                    data = (List<U>)method.Invoke(instance, null);
+                                    break;
+                                default:                                  
+                                    data = (List<U>)method.Invoke(instance, new[] { index });
+                                    break;
+                            }
 
                             if (data.Count > 0)
                             {
@@ -103,7 +111,14 @@ namespace MovieFilter.FilterLogic
                 }
                 else
                 {
-                    dataGridView.DataSource = defaultFilter.FilterDataMovies();
+                    if (index == null)
+                    {
+                        dataGridView.DataSource = defaultFilter.FilterDataMovies();
+                    }
+                    else
+                    {
+                        dataGridView.DataSource = defaultFilter.FilterDataActors()[(int)index];
+                    }
                 }
 
                 if (filteredValues.Count > 0)
