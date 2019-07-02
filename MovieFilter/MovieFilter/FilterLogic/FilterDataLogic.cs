@@ -90,21 +90,14 @@ namespace MovieFilter.FilterLogic
 
                         if (instance != null && method != null && method.DeclaringType.IsSealed)
                         {
-                            List<U> data = null;
-
                             switch (index)
                             {                               
                                 case null:
-                                    data = (List<U>)method.Invoke(instance, null);
+                                    filteredValues.AddRange((List<U>)method.Invoke(instance, null));
                                     break;
-                                default:                                  
-                                    data = (List<U>)method.Invoke(instance, new[] { index });
+                                default:
+                                    filteredValues.AddRange((List<U>)method.Invoke(instance, new[] { index }));
                                     break;
-                            }
-
-                            if (data.Count > 0)
-                            {
-                                filteredValues.AddRange(data);
                             }
                         }
                     }
@@ -119,12 +112,12 @@ namespace MovieFilter.FilterLogic
                     {
                         dataGridView.DataSource = defaultFilter.FilterDataActors()[(int)index];
                     }
-                }
+                }            
+            }
 
-                if (filteredValues.Count > 0)
-                {
-                    dataGridView.DataSource = filteredValues;
-                }
+            if (filteredValues.Count > 0)
+            {
+                dataGridView.DataSource = filteredValues;
             }
         }
     }
