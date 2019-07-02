@@ -26,7 +26,7 @@ namespace MovieFilter.FilterLogic
             Type[] types = Assembly.GetExecutingAssembly().GetTypes()
                 .Where(t => typeof(DefaultFilter).IsAssignableFrom(t) && t != typeof(DefaultFilter)).ToArray();
 
-            List<List<T>> filterValues = new List<List<T>>();
+            List<T> filterValues = new List<T>();
 
             foreach (Type t in types)
             {
@@ -39,10 +39,10 @@ namespace MovieFilter.FilterLogic
                     switch (index)
                     {
                         case null:
-                            filterValues.Add((List<T>)method.Invoke(instance, null));
+                            filterValues.AddRange((List<T>)method.Invoke(instance, null));
                             break;
                         default:
-                            filterValues.Add((List<T>)method.Invoke(instance, new[] { index }));
+                            filterValues.AddRange((List<T>)method.Invoke(instance, new[] { index }));
                             break;
                     }
                 }
@@ -51,7 +51,7 @@ namespace MovieFilter.FilterLogic
             FullCheckBoxes(filterValues, filtersGroupBox);
         }
 
-        private void FullCheckBoxes(List<List<T>> checkBoxData, GroupBox filtersGroupBox)
+        private void FullCheckBoxes(List<T> checkBoxData, GroupBox filtersGroupBox)
         {
             CheckBox checkBox;
 
@@ -59,18 +59,15 @@ namespace MovieFilter.FilterLogic
 
             foreach (var item in checkBoxData)
             {
-                foreach (var i in item)
-                {
-                    checkBox = new CheckBox();
-                    filtersGroupBox.Controls.Add(checkBox);
-                    checkBox.Top = cLeft * 20;
-                    checkBox.Width = 200;
-                    checkBox.Left = 10;
-                    checkBox.Text = i.ToString();
-                    cLeft = cLeft + 1;
+                checkBox = new CheckBox();
+                filtersGroupBox.Controls.Add(checkBox);
+                checkBox.Top = cLeft * 20;
+                checkBox.Width = 200;
+                checkBox.Left = 10;
+                checkBox.Text = item.ToString();
+                cLeft = cLeft + 1;
 
-                    checkBoxFilters.Add(checkBox);
-                }
+                checkBoxFilters.Add(checkBox);
             }
 
             cLeft = 1;
