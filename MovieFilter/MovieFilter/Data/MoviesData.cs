@@ -13,6 +13,7 @@ namespace MovieFilter.Data
         {
             movies = new Movies();
         }
+
         public Movies GetAllMovies()
         {
             XmlSerializer serializer = new XmlSerializer(typeof(Movies), new XmlRootAttribute("movies"));

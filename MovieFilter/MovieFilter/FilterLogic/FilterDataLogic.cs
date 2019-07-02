@@ -20,6 +20,7 @@ namespace MovieFilter.FilterLogic
             cLeft = 1;
             this.defaultFilter = defaultFilter;
         }
+
         public void FilterDataGrid(string methodName, GroupBox filtersGroupBox, object index = null)
         {
             Type[] types = Assembly.GetExecutingAssembly().GetTypes()
