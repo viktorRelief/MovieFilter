@@ -81,7 +81,7 @@ namespace MovieFilter.FilterLogic
             Type[] types = Assembly.GetExecutingAssembly().GetTypes()
                     .Where(t => typeof(DefaultFilter).IsAssignableFrom(t) && t != typeof(DefaultFilter)).ToArray();
 
-            List<Movie[]> filterValues = new List<Movie[]>();
+            List<Movie> filteredValues = new List<Movie>();
 
             foreach (var checkBox in checkBoxFilters)
             {
@@ -99,7 +99,7 @@ namespace MovieFilter.FilterLogic
 
                             if (data.Count > 0)
                             {
-                                filterValues.Add(data.ToArray());
+                                filteredValues.AddRange(data);
                             }
                         }
                     }
@@ -109,32 +109,11 @@ namespace MovieFilter.FilterLogic
                     dataGridView.DataSource = defaultFilter.FilterDataMovies();
                 }
 
-                if (filterValues.Count > 0)
+                if (filteredValues.Count > 0)
                 {
-                    CreateFilterDataGrid(filterValues, dataGridView);
+                    dataGridView.DataSource = filteredValues;
                 }
             }
-        }
-
-        private void CreateFilterDataGrid(List<Movie[]> filterValues, DataGridView dataGridView)
-        {
-            DataTable table = new DataTable();
-
-            table.Columns.Add("Title");
-            table.Columns.Add("Year");
-            table.Columns.Add("Country");
-            table.Columns.Add("Genre");
-            table.Columns.Add("Summary");
-
-            foreach (var group in filterValues)
-            {
-                foreach (var item in group)
-                {
-                    table.Rows.Add(item.Title, item.Year, item.Country, item.Genre, item.Summary);
-                }
-            }
-
-            dataGridView.DataSource = table;
         }
     }
 }

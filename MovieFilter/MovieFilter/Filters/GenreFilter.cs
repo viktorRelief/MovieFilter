@@ -18,6 +18,7 @@ namespace MovieFilter.Filters
         {
             return base.FilterDataMovies().Where(x => x.Genre == checkBox.Text).ToList();
         }
+
         public List<string> FilterValuesMovies()
         {
             return base.FilterDataMovies().Select(x => x.Genre).Distinct().ToList();
