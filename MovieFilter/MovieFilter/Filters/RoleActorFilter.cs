@@ -15,9 +15,8 @@ namespace MovieFilter.Filters
         }
 
         public List<Actor> FilteredDataActors(int index)
-        {
-            var list = FilterDataActors()[index].Where(x => x.Role == checkBox.Text).ToList();
-            return list;
+        {           
+            return FilterDataActors()[index].Where(x => x.Role == checkBox.Text).ToList(); ;
         }
 
         public List<string> FilterValuesActors(int index)
