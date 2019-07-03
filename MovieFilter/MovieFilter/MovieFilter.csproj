@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MoviesLibrary">
+      <HintPath>..\..\..\MoviesData\MoviesLibrary\MoviesLibrary\bin\Debug\MoviesLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -51,15 +54,7 @@
     <Compile Include="AdditionalDataForm.Designer.cs">
       <DependentUpon>AdditionalDataForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Data\MoviesData.cs" />
     <Compile Include="FilterLogic\FilterDataLogic.cs" />
-    <Compile Include="Filters\RoleActorFilter.cs" />
-    <Compile Include="Filters\LastNameActorFilter.cs" />
-    <Compile Include="Filters\CountryFilter.cs" />
-    <Compile Include="Filters\DefaultFilter.cs" />
-    <Compile Include="Filters\BirthDateActorFilter.cs" />
-    <Compile Include="Filters\GenreFilter.cs" />
-    <Compile Include="Filters\YearFilter.cs" />
     <Compile Include="MoviesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +96,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Filters\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

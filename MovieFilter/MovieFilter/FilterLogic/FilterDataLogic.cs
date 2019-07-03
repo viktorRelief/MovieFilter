@@ -1,5 +1,4 @@
-﻿using MovieFilter.Data;
-using MovieFilter.Filters;
+﻿using MovieFilter.Filters;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -22,7 +21,7 @@ namespace MovieFilter.FilterLogic
 
         public void FilterDataGrid(string methodName, GroupBox filtersGroupBox, out List<CheckBox> checkBoxFilters, object index = null)
         {
-            Type[] types = Assembly.GetExecutingAssembly().GetTypes()
+            Type[] types = Assembly.Load("MoviesLibrary").GetTypes()
                 .Where(t => typeof(DefaultFilter).IsAssignableFrom(t) && t != typeof(DefaultFilter)).ToArray();        
 
             List<T> filterValues = new List<T>();
@@ -73,7 +72,7 @@ namespace MovieFilter.FilterLogic
 
         public void FilterData(DataGridView dataGridView, string filterDataMethod, List<CheckBox> checkBoxFilters, object index = null)
         {
-            Type[] types = Assembly.GetExecutingAssembly().GetTypes()
+            Type[] types = Assembly.Load("MoviesLibrary").GetTypes()
                     .Where(t => typeof(DefaultFilter).IsAssignableFrom(t) && t != typeof(DefaultFilter)).ToArray();
 
             List<U> filteredValues = new List<U>();
