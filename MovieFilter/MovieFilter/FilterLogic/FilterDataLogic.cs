@@ -75,7 +75,7 @@ namespace MovieFilter.FilterLogic
             Type[] types = Assembly.Load("MoviesLibrary").GetTypes()
                     .Where(t => typeof(DefaultFilter).IsAssignableFrom(t) && t != typeof(DefaultFilter)).ToArray();
 
-            List<U> filteredValues = new List<U>();
+            HashSet<U> filteredValues = new HashSet<U>();
 
             foreach (var checkBox in checkBoxFilters)
             {
@@ -92,10 +92,10 @@ namespace MovieFilter.FilterLogic
                             switch (index)
                             {                               
                                 case null:
-                                    filteredValues.AddRange((List<U>)method.Invoke(instance, null));
+                                    filteredValues.UnionWith((List<U>)method.Invoke(instance, null));
                                     break;
                                 default:
-                                    filteredValues.AddRange((List<U>)method.Invoke(instance, new[] { index }));
+                                    filteredValues.UnionWith((List<U>)method.Invoke(instance, new[] { index }));
                                     break;
                             }
                         }
@@ -116,7 +116,7 @@ namespace MovieFilter.FilterLogic
 
             if (filteredValues.Count > 0)
             {
-                dataGridView.DataSource = filteredValues;
+                dataGridView.DataSource = filteredValues.ToList();
             }
         }
     }
